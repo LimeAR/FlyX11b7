@@ -9,7 +9,7 @@ const session = await cameraKit.createSession();
 document.getElementById('canvas').replaceWith(session.output.capture);
 
 const lens = await cameraKit.lensRepository.loadLens(
-    'af6a7504-79ba-499c-8e0d-53b9e785eb36',
+    '1f3d84d1-9bca-428b-9818-b3aa3d505904',
     '1ab5269b-f2b0-4570-a30f-74a123521727'
   );
 
