@@ -1152,7 +1152,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	var installedModules = {};
 /******/
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_536__(moduleId) {
+/******/ 	function __nested_webpack_require_551__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId]) {
@@ -1166,7 +1166,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 		};
 /******/
 /******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_536__);
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_551__);
 /******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.l = true;
@@ -1177,17 +1177,17 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__nested_webpack_require_536__.m = modules;
+/******/ 	__nested_webpack_require_551__.m = modules;
 /******/
 /******/ 	// expose the module cache
-/******/ 	__nested_webpack_require_536__.c = installedModules;
+/******/ 	__nested_webpack_require_551__.c = installedModules;
 /******/
 /******/ 	// identity function for calling harmony imports with the correct context
-/******/ 	__nested_webpack_require_536__.i = function(value) { return value; };
+/******/ 	__nested_webpack_require_551__.i = function(value) { return value; };
 /******/
 /******/ 	// define getter function for harmony exports
-/******/ 	__nested_webpack_require_536__.d = function(exports, name, getter) {
-/******/ 		if(!__nested_webpack_require_536__.o(exports, name)) {
+/******/ 	__nested_webpack_require_551__.d = function(exports, name, getter) {
+/******/ 		if(!__nested_webpack_require_551__.o(exports, name)) {
 /******/ 			Object.defineProperty(exports, name, {
 /******/ 				configurable: false,
 /******/ 				enumerable: true,
@@ -1197,32 +1197,32 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	};
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__nested_webpack_require_536__.n = function(module) {
+/******/ 	__nested_webpack_require_551__.n = function(module) {
 /******/ 		var getter = module && module.__esModule ?
 /******/ 			function getDefault() { return module['default']; } :
 /******/ 			function getModuleExports() { return module; };
-/******/ 		__nested_webpack_require_536__.d(getter, 'a', getter);
+/******/ 		__nested_webpack_require_551__.d(getter, 'a', getter);
 /******/ 		return getter;
 /******/ 	};
 /******/
 /******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__nested_webpack_require_536__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/ 	__nested_webpack_require_551__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__nested_webpack_require_536__.p = "";
+/******/ 	__nested_webpack_require_551__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __nested_webpack_require_536__(__nested_webpack_require_536__.s = 1);
+/******/ 	return __nested_webpack_require_551__(__nested_webpack_require_551__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __nested_webpack_require_2975__) {
+/***/ (function(module, exports, __nested_webpack_require_3055__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var util_1 = __nested_webpack_require_2975__(3);
+var util_1 = __nested_webpack_require_3055__(3);
 function isBrowserHeaders(arg) {
     return typeof arg === "object" && typeof arg.headersMap === "object" && typeof arg.forEach === "function";
 }
@@ -1384,12 +1384,12 @@ exports.BrowserHeaders = BrowserHeaders;
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __nested_webpack_require_8924__) {
+/***/ (function(module, exports, __nested_webpack_require_9171__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var BrowserHeaders_1 = __nested_webpack_require_8924__(0);
+var BrowserHeaders_1 = __nested_webpack_require_9171__(0);
 exports.BrowserHeaders = BrowserHeaders_1.BrowserHeaders;
 
 
@@ -1422,12 +1422,12 @@ exports.iterateHeadersKeys = iterateHeadersKeys;
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports, __nested_webpack_require_9870__) {
+/***/ (function(module, exports, __nested_webpack_require_10155__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var iterateHeaders_1 = __nested_webpack_require_9870__(2);
+var iterateHeaders_1 = __nested_webpack_require_10155__(2);
 function normalizeName(name) {
     if (typeof name !== "string") {
         name = String(name);
@@ -35117,7 +35117,7 @@ const session = await cameraKit.createSession();
 document.getElementById('canvas').replaceWith(session.output.capture);
 
 const lens = await cameraKit.lensRepository.loadLens(
-    'af6a7504-79ba-499c-8e0d-53b9e785eb36',
+    '1f3d84d1-9bca-428b-9818-b3aa3d505904',
     '1ab5269b-f2b0-4570-a30f-74a123521727'
   );
 
@@ -35133,8 +35133,6 @@ const source = createMediaStreamSource(mediaStream, { cameraType: 'environment'
 })
 
 await session.setSource(source);
-
-//source.setRenderSize(window.innerWidth, window.innerHeight)
 
 session.play('capture');
 
