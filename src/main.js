@@ -26,6 +26,8 @@ const source = createMediaStreamSource(mediaStream, { cameraType: 'environment'
 
 await session.setSource(source);
 
+//source.setRenderSize(window.innerWidth, window.innerHeight)
+
 session.play('capture');
 
 await session.applyLens(lens);
