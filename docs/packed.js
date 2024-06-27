@@ -35108,37 +35108,72 @@ function createImageSource(image, options = {}) {
 ;// CONCATENATED MODULE: ./src/main.js
 
 
-(async function () {
-  const cameraKit = await bootstrapCameraKit({ 
-    apiToken: 'eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNzE4OTg3ODg3LCJzdWIiOiJkN2UwNWJjYS02ODVkLTQ0ZGItODE0Mi01ZDg0YTA3YjRlYWJ-UFJPRFVDVElPTn41NTEzNzczNi02YzA2LTRkMjktYjg0YS0wN2Y1MTlhZGRjZGUifQ.sECS_i5kKnojrBmdFNF0r5P8HMnebLJx8P6Xex9VcSE' });
+const liveRenderTarget = document.getElementById("canvas")
+const flipCamera = document.getElementById("flip")
 
-const session = await cameraKit.createSession();
+let isBackFacing = true
+let mediaStream
 
-document.getElementById('canvas').replaceWith(session.output.capture);
+async function init() {
+  cameraKit = await bootstrapCameraKit({
+    apiToken: "eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNzE4OTg3ODg3LCJzdWIiOiJkN2UwNWJjYS02ODVkLTQ0ZGItODE0Mi01ZDg0YTA3YjRlYWJ-UFJPRFVDVElPTn41NTEzNzczNi02YzA2LTRkMjktYjg0YS0wN2Y1MTlhZGRjZGUifQ.sECS_i5kKnojrBmdFNF0r5P8HMnebLJx8P6Xex9VcSE"
+  })
 
-const lens = await cameraKit.lensRepository.loadLens(
+  session = await cameraKit.createSession({ liveRenderTarget })
+ lens = await cameraKit.lensRepository.loadLens(
     '1f3d84d1-9bca-428b-9818-b3aa3d505904',
     '1ab5269b-f2b0-4570-a30f-74a123521727'
   );
 
-const mediaStream = await navigator.mediaDevices.getUserMedia({
-  video:{
-    width: { min: 1024, ideal: 1280, max: 1920 },
-    height: { min: 576, ideal: 720, max: 1080 },
-    facingMode: { exact: "environment" },
-  },
-});
+  session.applyLens(lens)
 
-const source = createMediaStreamSource(mediaStream, { cameraType: 'environment' 
-})
+  bindFlipCamera(session)
+}
 
-await session.setSource(source);
+function bindFlipCamera(session) {
+  flipCamera.style.cursor = "pointer"
 
-session.play('capture');
+  flipCamera.addEventListener("click", () => {
+    updateCamera(session)
+  })
 
-await session.applyLens(lens);
+  updateCamera(session)
+}
 
-})();
+async function updateCamera(session) {
+  isBackFacing = !isBackFacing
+
+  flipCamera.innerText = isBackFacing
+    ? "Switch to Front Camera"
+    : "Switch to Back Camera"
+
+  if (mediaStream) {
+    session.pause()
+    mediaStream.getVideoTracks()[0].stop()
+  }
+
+  mediaStream = await navigator.mediaDevices.getUserMedia({
+    video: {
+      facingMode: isBackFacing ? "environment" : "user"
+    }
+  })
+
+  source = createMediaStreamSource(mediaStream, {
+    // NOTE: This is important for world facing experiences
+    cameraType: isBackFacing ? "back" : "front"
+  })
+
+  await session.setSource(source)
+
+  if (!isBackFacing) {
+    source.setTransform(Transform2D.MirrorX)
+  }
+
+  session.play()
+}
+
+init()
+
 })();
 
 /******/ })()
