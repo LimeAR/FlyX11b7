@@ -30,9 +30,9 @@ await session.setSource(source);
 
 session.play('capture');
 
-//await session.applyLens(lens);
+await session.applyLens(lens);
 
-await window.setTimeout(sessionDuration,2000);
+// await window.setTimeout(sessionDuration,2000);
 
 //await window.setTimeout(function(){session.applyLens(lens)},500);
 
@@ -44,9 +44,9 @@ setTimeout(() => {
 
 })();
 
-sessionDuration = function() {
-  session.applyLens(lens)
-}
+// sessionDuration = function() {
+//   session.applyLens(lens)
+// }
 
 // playDelay = function() {
 //   document.getElementById("playbtn").style.visibility = "visible";
