@@ -26,11 +26,14 @@ const source = createMediaStreamSource(mediaStream, { cameraType: 'environment'
 
 await session.setSource(source);
 
-//source.setRenderSize(window.innerWidth, window.innerHeight)
-
 session.play('capture');
 
 session.applyLens(lens);
+
+const wait = t => new Promise((resolve, reject) => setTimeout(resolve, t))
+
+
+//resolvePromise();
 
 //await session.applyLens(lens);
 
@@ -40,31 +43,19 @@ session.applyLens(lens);
 
 //window.setTimeout(function(){document.getElementById("playbtn").style.visibility = "visible";},5000);
 
-function change() { 
-  return new Promise(function (resolve, reject) { 
-
-      // Setting 2000 ms time 
-      setTimeout(resolve, 5000); 
-  }).then(function () { 
-    document.getElementById("playbtn").style.visibility = "visible"; 
-  }); 
-}
-
-change();
-
 })();
 
 // function playNow(){
-//   document.getElementById("playbtn").style.visibility = "hidden";
 //   window.setTimeout(function(){document.getElementById("playbtn").style.visibility = "visible";},5000);
 // }
 
-function change() { 
-  return new Promise(function (resolve, reject) { 
+// async function resolvePromise() { 
+//   let newPromise =  
+//       new Promise(function (resolve, reject) { 
+//       setTimeout(function () { 
+//         document.getElementById("playbtn").style.visibility = "visible";
+//       }, 1000); 
+//   }); 
+//   let result = await newPromise;
+// }
 
-      // Setting 2000 ms time 
-      setTimeout(resolve, 5000); 
-  }).then(function () { 
-    document.getElementById("playbtn").style.visibility = "visible"; 
-  }); 
-}
