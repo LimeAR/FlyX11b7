@@ -30,6 +30,15 @@ await session.setSource(source);
 
 session.play('capture');
 
-await session.applyLens(lens);
+//await session.applyLens(lens);
+
+await setTimeout(function(){session.applyLens(lens)},500);
+
+playNow();
 
 })();
+
+function playNow(){
+  document.getElementById("playbtn").style.visibility = "hidden";
+  setTimeout(function(){document.getElementById("playbtn").style.visibility = "visible";},5000);
+}
