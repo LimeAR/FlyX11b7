@@ -40,6 +40,16 @@ session.applyLens(lens);
 
 //window.setTimeout(function(){document.getElementById("playbtn").style.visibility = "visible";},5000);
 
+function change() { 
+  return new Promise(function (resolve, reject) { 
+
+      // Setting 2000 ms time 
+      setTimeout(resolve, 5000); 
+  }).then(function () { 
+    document.getElementById("playbtn").style.visibility = "visible"; 
+  }); 
+}
+
 change();
 
 })();
