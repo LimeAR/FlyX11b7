@@ -30,7 +30,7 @@ await session.setSource(source);
 
 session.play('capture');
 
-await session.applyLens(lens);
+//await session.applyLens(lens);
 
 // await window.setTimeout(sessionDuration,2000);
 
@@ -42,16 +42,16 @@ await session.applyLens(lens);
 //   document.getElementById("playbtn").style.visibility = "visible";
 // }, "5000");
 
-// playDelay = function() {
-//   document.getElementById("playbtn").style.visibility = "visible";
-// }
+playDelay = function() {
+  document.getElementById("playbtn").style.visibility = "visible";
+}
 
-// function playNow(){
-//   document.getElementById("playbtn").style.visibility = "hidden";
-//   window.setTimeout(playDelay,5000);
-// }
+function playNow(){
+  document.getElementById("playbtn").style.visibility = "hidden";
+  window.setTimeout(playDelay,5000);
+}
 
-bindPlayNow();
+PlayNow();
 
 };
 
@@ -59,11 +59,11 @@ bindPlayNow();
 //   session.applyLens(lens)
 // }
 
-function bindPlayNow() {
-  setTimeout(() => {
-   document.getElementById("playbtn").style.visibility = "visible";
-  }, "5000");
-}
+// function bindPlayNow() {
+//   setTimeout(() => {
+//    document.getElementById("playbtn").style.visibility = "visible";
+//   }, "5000");
+// }
 
 init();
 
