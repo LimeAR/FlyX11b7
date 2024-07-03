@@ -39,6 +39,6 @@ playNow();
 })();
 
 function playNow(){
-  document.getElementById("playbtn").style.visibility = "hidden";
-  setTimeout(function(){document.getElementById("playbtn").style.visibility = "visible";},5000);
+  document.getElementById("playbtn").style.display === "none";
+  setTimeout(function(){document.getElementById("playbtn").style.display = "block";},5000);
 }
