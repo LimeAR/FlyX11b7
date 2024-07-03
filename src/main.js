@@ -32,7 +32,7 @@ session.play('capture');
 
 //await session.applyLens(lens);
 
-await setTimeout(function(){session.applyLens(lens)},500);
+await window.setTimeout(function(){session.applyLens(lens)},500);
 
 playNow();
 
@@ -40,5 +40,5 @@ playNow();
 
 function playNow(){
   document.getElementById("playbtn").style.display === "none";
-  setTimeout(function(){document.getElementById("playbtn").style.display = "block";},5000);
+  window.setTimeout(function(){document.getElementById("playbtn").style.display = "block";},5000);
 }
