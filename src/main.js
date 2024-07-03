@@ -32,13 +32,23 @@ session.play('capture');
 
 //await session.applyLens(lens);
 
-await window.setTimeout(function(){session.applyLens(lens)},500);
+await window.setTimeout(calcDuration,500);
+
+//await window.setTimeout(function(){session.applyLens(lens)},500);
 
 playNow();
 
 })();
 
+sessionDuration = function() {
+  session.applyLens(lens)
+}
+
+playDelay = function() {
+  document.getElementById("playbtn").style.visibility = "visible";
+}
+
 function playNow(){
-  document.getElementById("playbtn").style.display === "none";
-  window.setTimeout(function(){document.getElementById("playbtn").style.display = "block";},5000);
+  document.getElementById("playbtn").style.visibility = "hidden";
+  window.setTimeout(playDelay,5000);
 }
