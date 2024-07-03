@@ -1,6 +1,6 @@
 import { bootstrapCameraKit, createMediaStreamSource, Transform2D, } from '@snap/camera-kit';
 
-(async function () {
+async function init() {
   const cameraKit = await bootstrapCameraKit({ 
     apiToken: 'eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNzE4OTg3ODg3LCJzdWIiOiJkN2UwNWJjYS02ODVkLTQ0ZGItODE0Mi01ZDg0YTA3YjRlYWJ-UFJPRFVDVElPTn41NTEzNzczNi02YzA2LTRkMjktYjg0YS0wN2Y1MTlhZGRjZGUifQ.sECS_i5kKnojrBmdFNF0r5P8HMnebLJx8P6Xex9VcSE' });
 
@@ -38,7 +38,7 @@ await window.setTimeout(calcDuration,500);
 
 playNow();
 
-})();
+};
 
 sessionDuration = function() {
   session.applyLens(lens)
@@ -52,3 +52,5 @@ function playNow(){
   document.getElementById("playbtn").style.visibility = "hidden";
   window.setTimeout(playDelay,5000);
 }
+
+init();
