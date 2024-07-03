@@ -38,9 +38,9 @@ session.applyLens(lens);
 
 //playNow();
 
-await setTimeout(5000)
+//window.setTimeout(function(){document.getElementById("playbtn").style.visibility = "visible";},5000);
 
-document.getElementById("playbtn").style.visibility = "visible";
+change();
 
 })();
 
@@ -48,3 +48,13 @@ document.getElementById("playbtn").style.visibility = "visible";
 //   document.getElementById("playbtn").style.visibility = "hidden";
 //   window.setTimeout(function(){document.getElementById("playbtn").style.visibility = "visible";},5000);
 // }
+
+function change() { 
+  return new Promise(function (resolve, reject) { 
+
+      // Setting 2000 ms time 
+      setTimeout(resolve, 5000); 
+  }).then(function () { 
+    document.getElementById("playbtn").style.visibility = "visible"; 
+  }); 
+}
