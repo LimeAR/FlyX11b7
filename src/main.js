@@ -30,9 +30,6 @@ session.play('capture');
 
 session.applyLens(lens);
 
-const wait = t => new Promise((resolve, reject) => setTimeout(resolve, t))
-
-
 //resolvePromise();
 
 //await session.applyLens(lens);
@@ -44,18 +41,3 @@ const wait = t => new Promise((resolve, reject) => setTimeout(resolve, t))
 //window.setTimeout(function(){document.getElementById("playbtn").style.visibility = "visible";},5000);
 
 })();
-
-// function playNow(){
-//   window.setTimeout(function(){document.getElementById("playbtn").style.visibility = "visible";},5000);
-// }
-
-// async function resolvePromise() { 
-//   let newPromise =  
-//       new Promise(function (resolve, reject) { 
-//       setTimeout(function () { 
-//         document.getElementById("playbtn").style.visibility = "visible";
-//       }, 1000); 
-//   }); 
-//   let result = await newPromise;
-// }
-
