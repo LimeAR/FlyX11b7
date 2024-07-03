@@ -30,15 +30,21 @@ await session.setSource(source);
 
 session.play('capture');
 
+session.applyLens(lens);
+
 //await session.applyLens(lens);
 
-await window.setTimeout(function(){session.applyLens(lens)},500);
+//await window.setTimeout(function(){session.applyLens(lens)},500);
 
-playNow();
+//playNow();
+
+await setTimeout(5000)
+
+document.getElementById("playbtn").style.visibility = "visible";
 
 })();
 
-function playNow(){
-  document.getElementById("playbtn").style.visibility = "hidden";
-  window.setTimeout(function(){document.getElementById("playbtn").style.visibility = "visible";},5000);
-}
+// function playNow(){
+//   document.getElementById("playbtn").style.visibility = "hidden";
+//   window.setTimeout(function(){document.getElementById("playbtn").style.visibility = "visible";},5000);
+// }
