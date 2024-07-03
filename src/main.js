@@ -36,11 +36,22 @@ await session.applyLens(lens);
 
 //await window.setTimeout(function(){session.applyLens(lens)},500);
 
-//playNow();
 
-setTimeout(() => {
+
+// setTimeout(() => {
+//   document.getElementById("playbtn").style.visibility = "visible";
+// }, "5000");
+
+playDelay = function() {
   document.getElementById("playbtn").style.visibility = "visible";
-}, "5000");
+}
+
+function playNow(){
+  document.getElementById("playbtn").style.visibility = "hidden";
+  window.setTimeout(playDelay,5000);
+}
+
+playNow();
 
 })();
 
@@ -48,12 +59,7 @@ setTimeout(() => {
 //   session.applyLens(lens)
 // }
 
-// playDelay = function() {
-//   document.getElementById("playbtn").style.visibility = "visible";
-// }
 
-// function playNow(){
-//   document.getElementById("playbtn").style.visibility = "hidden";
-//   window.setTimeout(playDelay,5000);
-// }
+
+
 
